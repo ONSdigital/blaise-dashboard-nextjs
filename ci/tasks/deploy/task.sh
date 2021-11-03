@@ -7,4 +7,4 @@ gcloud auth activate-service-account --project="${GCP_PROJECT}" --key-file=/tmp/
 
 cd dashboard-git
 
-gcloud app deploy
+gcloud --quiet app deploy
