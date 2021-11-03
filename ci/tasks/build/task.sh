@@ -7,6 +7,6 @@ cd dashboard-git
 yarn install
 yarn build
 cd ..
-cp -r dashboard-git dashboard
+cp -r dashboard-git/* dashboard
 
 
