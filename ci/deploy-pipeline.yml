@@ -8,6 +8,8 @@ jobs:
     plan:
       - get: dashboard-git
         trigger: true
+      - task: build
+        file: dashboard-git/ci/tasks/build/task.yml
       - task: deploy
         file: dashboard-git/ci/tasks/deploy/task.yml
         params:
