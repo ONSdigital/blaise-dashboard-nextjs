@@ -3,15 +3,15 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import type { AppProps } from 'next/app'
+import type { AppContext } from 'next/app'
 
-import PageChange from "src/components/PageChange/PageChange";
+import PageChange from "../src/components/PageChange/PageChange";
 
-import "assets/plugins/nucleo/css/nucleo.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "assets/scss/nextjs-argon-dashboard.scss";
+import "../src/assets/plugins/nucleo/css/nucleo.css";
+import 'font-awesome/css/font-awesome.min.css';
+import "../src/assets/scss/nextjs-argon-dashboard.scss";
 
-Router.events.on("routeChangeStart", (url) => {
+Router.events.on("routeChangeStart", (url: string) => {
   console.log(`Loading: ${url}`);
   document.body.classList.add("body-page-transition");
   ReactDOM.render(
@@ -29,6 +29,8 @@ Router.events.on("routeChangeError", () => {
 });
 
 export default class MyApp extends App {
+  props: any;
+
   componentDidMount() {
     let comment = document.createComment(`
 
@@ -49,11 +51,11 @@ export default class MyApp extends App {
 `);
     document.insertBefore(comment, document.documentElement);
   }
-  static async getInitialProps({ Component, router, ctx }: AppProps) {
-    let pageProps = {};
+  static async getInitialProps({ Component, router, ctx, ...pageProps }: AppContext) {
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
+      const pageProps = await Component.getInitialProps(ctx);
+      return { pageProps };
     }
 
     return { pageProps };
@@ -61,7 +63,7 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
-    const Layout = Component.layout || (({ children }) => <>{children}</>);
+    const Layout = Component.layout || (({ children }: any) => <>{children}</>);
 
     return (
       <React.Fragment>

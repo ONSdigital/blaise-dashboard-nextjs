@@ -1,5 +1,6 @@
-.body-page-transition{
+.body-page-transition {
   overflow: hidden;
+
   #page-transition {
     position: fixed;
     z-index: 9999;
@@ -10,10 +11,10 @@
     align-items: center;
   }
 
-  #page-transition > div{
-    &:after{
+  #page-transition>div {
+    &:after {
       content: "";
-      background-image: url("../img/theme/img-1-1000x600.jpg");
+      background-image: url("../../img/theme/img-1-1000x600.jpg");
       background-size: cover;
       position: fixed;
       z-index: 9998;
@@ -22,6 +23,7 @@
       top: 0;
       left: 0;
     }
+
     &:before {
       top: 0;
       left: 0;
@@ -34,6 +36,7 @@
       background: rgba(0, 0, 0, 0.5);
     }
   }
+
   .page-transition-wrapper-div {
     margin: 100px auto;
     padding: 0px;
@@ -43,6 +46,7 @@
     z-index: 9999;
     top: 0;
   }
+
   .page-transition-icon-wrapper {
     display: block;
   }
