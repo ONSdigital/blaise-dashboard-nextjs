@@ -38,3 +38,6 @@ yarn-error.log*
 
 # other stuff and things
 .eslintrc.json
+
+# IDE Metadata
+.idea/
