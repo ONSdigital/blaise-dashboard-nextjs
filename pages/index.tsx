@@ -8,6 +8,8 @@ import React, {useEffect, useState} from "react";
 import Health from "./health";
 
 
+const giphy = "http://api.giphy.com/v1/gifs/search?q=success&api_key=gy4QI81XqvWk4H3T0gtpesaZ6rIyJLRf&limit=100"
+
 
 const Home: NextPage = () => {
     const [gifUrl, setGifUrl] = useState<string>("")
